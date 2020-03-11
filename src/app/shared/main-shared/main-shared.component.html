@@ -1,0 +1,101 @@
+<div class="main">
+  <div class="edit" *ngIf="edit">
+    <div [hidden]="success" class="alert alert-success" role="alert">
+      {{playerName}} information edited successfully!
+    </div>
+    <div [hidden]="unsuccess" class="alert alert-danger" role="alert">
+      Please fill in all required fields!
+    </div>
+    <div [hidden]="deleted" class="alert alert-success" role="alert">
+      Player deleted successfully!
+    </div>
+  </div>
+
+
+  <div class="add" *ngIf="!edit">
+    <div [hidden]="success" class="alert alert-success" role="alert">
+      New player added successfully!
+    </div>
+    <div [hidden]="unsuccess" class="alert alert-danger" role="alert">
+      Please fill in all required fields!
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-4">
+      <div class="card card-left">
+        <figure>
+          <img class="card-img-top" src='../../../assets/big-user.png'>
+        </figure>
+        <div class="card-body">
+          <button *ngIf="edit" type="button" class="btn btn-upload-image">Change Photo</button>
+          <button *ngIf="!edit" type="button" class="btn btn-upload-image">Upload a Photo</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-8">
+      <div class="card card-right">
+        <div class="card-body">
+          <form [formGroup]="formPlayer">
+            <div class="form-group" [ngClass]="{'has-error': formPlayer.get('name').errors && (formPlayer.get('name').touched || formPlayer.get('name').dirty)}">
+              <div class="content">
+                <label class="label">Full Name</label>
+                <input formControlName="name" type="text" class="form-control" placeholder="Please enter your full name...">
+              </div>
+              <span class="help-block" *ngIf="formPlayer.get('name').errors && (formPlayer.get('name').touched || formPlayer.get('name').dirty)">
+                <span class="help-block-sub" *ngIf="formPlayer.get('name').errors.required">Full Name is required</span>
+                <span class="help-block-sub" *ngIf="formPlayer.get('name').errors.maxlength">Full Name must be less than 75 letters</span>
+              </span>
+            </div>
+            <div class="form-group">
+              <div class="content">
+                <label class="label">Age</label>
+                <input formControlName="age" type="number" class="form-control" placeholder="Please enter your age...">
+              </div>
+              <span class="help-block" *ngIf="formPlayer.get('age').errors && (formPlayer.get('age').touched || formPlayer.get('age').dirty)">
+                <span class="help-block-sub" *ngIf="formPlayer.get('age').errors.required">Age is required</span>
+                <span class="help-block-sub" *ngIf="formPlayer.get('age').errors.pattern">Invalid age</span>
+              </span>
+            </div>
+            <div class="form-group">
+              <div class="content">
+                <label class="label">Date of Birth</label>
+                <input formControlName="dob" type="date" class="form-control" placeholder="Please enter your date of birth...">
+              </div>
+              <span class="help-block" *ngIf="formPlayer.get('dob').errors && (formPlayer.get('dob').touched || formPlayer.get('dob').dirty)">
+                <span class="help-block-sub" *ngIf="formPlayer.get('dob').errors.required">Date of birth is required</span>
+              </span>
+            </div>
+            <div class="form-group">
+              <div class="content">
+                <label class="label">Gender</label>
+                <input formControlName="gender" type="text" class="form-control" placeholder="Please enter your gender...">
+              </div>
+              <span class="help-block" *ngIf="formPlayer.get('gender').errors && (formPlayer.get('gender').touched || formPlayer.get('gender').dirty)">
+                <span class="help-block-sub" *ngIf="formPlayer.get('gender').errors.required">Gender is required</span>
+              </span>
+            </div>
+            <div class="form-group">
+              <div class="content">
+                <label class="label">Position</label>
+                <select formControlName="position" class="form-control form-control-sm">
+                  <option *ngIf="edit" selected>{{position}}</option>
+                  <option *ngIf="!edit" >Please select your position...</option>
+                  <option *ngFor="let position of positions">{{position}}</option>
+                </select>
+              </div>
+              <span class="help-block" *ngIf="formPlayer.get('position').errors && (formPlayer.get('position').touched || formPlayer.get('position').dirty)">
+                <span class="help-block-sub" *ngIf="formPlayer.get('position').errors.required">Position is required</span>
+              </span>
+            </div>
+            <div *ngIf="edit" class="form-group delete-player">
+              <button type="button" class="btn btn-delete" (click)="deletePlayer()">Delete</button>
+            </div>
+            <div *ngIf="!edit" class="form-group add-player">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

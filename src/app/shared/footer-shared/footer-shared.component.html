@@ -1,0 +1,8 @@
+<div class="footer">
+  <div class="footer-btn">
+    <button *ngIf="createPlayer || updatePlayer" type="button" class="btn btn-cancel" routerLink="/dashboard">Cancel</button>
+    <button *ngIf="createPlayer" type="button" class="btn btn-footer-create-player" (click)="addPlayer()">Create Player</button>
+    <button *ngIf="updatePlayer" type="button" class="btn btn-footer-create-player" (click)="modifyPlayer()">Modify</button>
+    <button *ngIf="dashboard" type="button" class="btn btn-footer-create-player" routerLink="/create-player">Add Player</button>
+  </div>
+</div>

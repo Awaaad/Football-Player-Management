@@ -1,0 +1,47 @@
+.delete-player{
+  float: right;
+  // margin-right: 36px;
+}
+.btn-modify-player{
+  margin-right: 20px;
+}
+.add-player{
+  float: right;
+  // margin-right: 55px;
+}
+
+.card.card-dashboard{
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 30rem;
+  height: 15rem;
+  .card-wrapper{
+    display: flex;
+    height: 100%;
+    .card-img{
+      width: auto;
+      padding-top: 50px;
+    }
+    .card-description{
+      padding-top: 67px;
+    }
+  }
+}
+
+.card:hover{
+  cursor: pointer;
+}
+
+.row.dashboard-wrapper{
+  margin-left: 0;
+  margin-right: 0;
+  justify-content: space-between;
+  margin: 0 4rem;
+}
+
+
+.card-img-top-dashboard{
+  width: 125px;
+  // margin: 0 auto;
+}

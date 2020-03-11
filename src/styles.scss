@@ -5,35 +5,44 @@ h1 {
   font-weight: 600;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
+
 h2 {
   font-size: 32px;
   font-weight: 600;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
+
 h5 {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
-.btn{
-  font-size: 1.25rem;;
+
+.btn {
+  font-size: 1.25rem;
+  ;
 }
-.label{
-  font-size: 1.25rem;;
+
+.label {
+  font-size: 1.25rem;
+  ;
 }
-.form-control{
+
+.form-control {
   font-size: 1.25rem;
 }
 
-.header{
+.header {
   text-align: center;
   // border-bottom: 2px solid black;
-  box-shadow:0px 0px 7px black;
+  box-shadow: 0px 0px 7px black;
   background-color: #343a40;
-  .title h1{
+
+  .title h1 {
     margin-bottom: 0;
     padding-top: 20px;
     color: white;
   }
-  .subtitle h2{
+
+  .subtitle h2 {
     margin-top: 0;
     padding-bottom: 20px;
     color: white
@@ -41,55 +50,56 @@ h5 {
 }
 
 
-.footer{
+.footer {
   // border-top: 2px solid black;
   box-shadow: 0px 0px 7px black;
   position: fixed;
   bottom: 0;
-  width:100%;
+  width: 100%;
   background-color: #343a40;
-  .footer-btn{
-    padding-top:20px;
+
+  .footer-btn {
+    padding-top: 20px;
     padding-bottom: 20px;
     float: right;
-    padding-right: 74px;
+    padding-right: 35px;
   }
 }
 
 
 
-.card.card-left{
-  width: 20rem;
+.card.card-left {
+  width: 99%;
   margin: 0 auto;
   margin-top: 60px;
   height: 30rem;
-  .card-img-top{
-    padding-top: 50px;
-  }
-    .card-body{
-      margin: 0 auto;
-      // padding-bottom: 50px;
-      .btn-upload-image{
-        color: white;
-        background-color: #525252;
-      }
+
+  .card-body {
+    margin: 0 auto;
+
+    // margin-bottom: 190px;
+    // padding-bottom: 50px;
+    .btn-upload-image {
+      color: white;
+      background-color: #525252;
+    }
   }
 }
 
-.card.card-right{
+.card.card-right {
   margin-top: 60px;
-  width: 95%;
+  width: 99%;
   height: 30rem;
-  .card-body{
-    // padding-top: 135px;
-    // padding-bottom: 135px;
-    padding-top: 8%;
-    .form-group{
-      // display: flex;
-      .label{
+
+  .card-body {
+
+    // margin-bottom: 180px;
+    .form-group {
+      .label {
         width: 15%;
       }
-      .form-control{
+
+      .form-control {
         width: 80%;
         float: right;
         height: 100%;
@@ -98,56 +108,64 @@ h5 {
   }
 }
 
-.row{
+.row {
   margin-right: 0;
   margin-left: 0;
 }
 
-.btn-delete{
+.btn-delete {
   color: white;
   background-color: #f04444;
   // margin-right: 20px;
 }
-.btn-add-player{
+
+.btn-add-player {
   color: white;
   background-color: #525252;
 }
-.btn-cancel{
+
+.btn-cancel {
   color: white;
   background-color: #f04444;
   margin-right: 20px;
 }
-.btn-create-player{
+
+.btn-create-player {
   color: white;
   background-color: #525252;
 }
-.btn-footer-create-player{
+
+.btn-footer-create-player {
   color: black;
   background-color: white;
 }
-.btn-modify-player{
+
+.btn-modify-player {
   color: white;
   background-color: #525252;
 }
 
-.alert-danger{
+.alert-danger {
   width: 500px;
   margin: 0 auto;
   margin-top: 25px;
 }
-.alert-success{
+
+.alert-success {
   width: 500px;
   margin: 0 auto;
   margin-top: 25px;
 }
-.football{
-  width: 1.5%;
+
+.football {
+  width: 24px;
   margin-bottom: 10px;
 }
 
-.help-block{
+.help-block {
   color: red;
-  .help-block-sub{
+
+  .help-block-sub {
     padding-left: 20%;
   }
 }
@@ -155,8 +173,11 @@ h5 {
 .content {
   min-height: 100%;
 }
+
 .dashboard-content {
   margin-bottom: 100px;
 }
 
-
+figure {
+  margin: unset
+}

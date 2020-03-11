@@ -4,6 +4,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
 import { Subscription } from 'rxjs';
 import { ChangeContentService } from 'src/app/services/change-content.service';
+import { Util } from '../utils/util';
+import { Player } from '../models/models';
 
 @Component({
   selector: 'app-main-shared',
@@ -35,13 +37,15 @@ export class MainSharedComponent implements OnInit, OnDestroy {
     private dataService: DataService,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
-    private changeContentService: ChangeContentService
+    private changeContentService: ChangeContentService,
+    private util: Util
   ) { }
 
   ngOnInit() {
     this.submitAddFormSubscription = this.changeContentService.emitSubmitAddEventEmitter.subscribe(data => {
       this.submitAddForm = data;
       console.log('submit', this.submitAddForm);
+      // tslint:disable-next-line: triple-equals
       if (this.submitAddForm == true) {
         this.addNewPlayerDetails();
       }
@@ -49,8 +53,9 @@ export class MainSharedComponent implements OnInit, OnDestroy {
     this.submitModifyFormSubscription = this.changeContentService.emitSubmitModifyEventEmitter.subscribe(data => {
       this.submitModifyForm = data;
       console.log('submit', this.submitModifyForm);
+      // tslint:disable-next-line: triple-equals
       if (this.submitModifyForm == true) {
-        this.modifyPlayer();
+        this.modifyPlayer(this.playerId);
       }
     });
 
@@ -63,6 +68,7 @@ export class MainSharedComponent implements OnInit, OnDestroy {
 
     if (this.playerId > 0) {
       this.edit = true;
+      // tslint:disable-next-line: triple-equals
       this.player = this.players.filter(data => data.id == this.playerId);
       this.dob = new Date(this.player[0].dob);
       this.position = this.player[0].position;
@@ -107,9 +113,7 @@ export class MainSharedComponent implements OnInit, OnDestroy {
         gender: this.formPlayer.get('gender').value,
         position: this.formPlayer.get('position').value
       };
-      this.players.push(player);
-      localStorage.removeItem('players');
-      localStorage.setItem('players', JSON.stringify(this.players));
+      this.util.addPlayer(player);
 
       setTimeout(() => {
         this.router.navigate(['/dashboard']);
@@ -117,18 +121,16 @@ export class MainSharedComponent implements OnInit, OnDestroy {
     }
   }
 
-  public deletePlayer(): void {
+  public deletePlayer(playerId): void {
     alert('Are you sure you want to proceed?');
     this.deleted = false;
-    this.players.splice((this.playerId - 1), 1);
-    localStorage.removeItem('players');
-    localStorage.setItem('players', JSON.stringify(this.players));
+    this.util.deletePlayer(playerId);
     setTimeout(() => {
       this.router.navigate(['/dashboard']);
     }, 2000);
   }
 
-  public modifyPlayer(): void {
+  public modifyPlayer(playerId): void {
     if (this.formPlayer.invalid) {
       this.unsuccess = false;
       setTimeout(() => {
@@ -145,10 +147,7 @@ export class MainSharedComponent implements OnInit, OnDestroy {
         gender: this.formPlayer.get('gender').value,
         position: this.formPlayer.get('position').value
       };
-      this.players.splice((this.playerId - 1), 1);
-      this.players.push(player);
-      localStorage.removeItem('players');
-      localStorage.setItem('players', JSON.stringify(this.players));
+      this.util.modifyPlayer(playerId, player);
       setTimeout(() => {
         this.router.navigate(['/dashboard']);
       }, 2000);

@@ -1,35 +1,6 @@
-.card{
-  margin: 0 auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  width: 30rem;
-  height: 15rem;
-  .card-wrapper{
-    display: flex;
-    height: 100%;
-    .card-img{
-      width: auto;
-      padding-top: 50px;
-    }
-    .card-description{
-      padding-top: 67px;
-    }
-  }
-}
-
-.card:hover{
-  cursor: pointer;
-}
-
-.row{
-  margin-left: 0;
-  margin-right: 0;
-  justify-content: space-between;
-  margin: 0 4rem;
+.main {
+  margin-right: 15px;
+  margin-left: 15px;
 }
 
 
-.card-img-top{
-  width: 125px;
-  // margin: 0 auto;
-}

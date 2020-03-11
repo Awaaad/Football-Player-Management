@@ -9,25 +9,11 @@ import { ChangeContentService } from 'src/app/services/change-content.service';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
-  players: any[];
-  name: string;
-  age: number;
-  position: string;
-  edit: boolean;
-  player: any[];
-  playerName: string;
+  constructor() {
 
-  constructor(
-    private router: Router,
-    private dataService: DataService,
-    private changeContentService: ChangeContentService
-  ) { }
-
-  ngOnInit() {
-    this.players = JSON.parse(localStorage.getItem('players'));
   }
 
-  routeTo(playerId: number) {
-    this.router.navigate(['/update-player', playerId]);
+  ngOnInit() {
+
   }
 }

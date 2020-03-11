@@ -12,6 +12,7 @@ import { UpdatePlayerComponent } from './update-player/update-player.component';
 import { HeaderSharedComponent } from './shared/header-shared/header-shared.component';
 import { FooterSharedComponent } from './shared/footer-shared/footer-shared.component';
 import { MainSharedComponent } from './shared/main-shared/main-shared.component';
+import { PlayerCardComponent } from './dashboard/main/player-card/player-card.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { MainSharedComponent } from './shared/main-shared/main-shared.component'
     HeaderSharedComponent,
     FooterSharedComponent,
     MainSharedComponent,
+    PlayerCardComponent,
   ],
   imports: [
     BrowserModule,

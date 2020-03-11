@@ -122,6 +122,7 @@ export class MainSharedComponent implements OnInit, OnDestroy {
   }
 
   public deletePlayer(playerId): void {
+    playerId = this.playerId;
     alert('Are you sure you want to proceed?');
     this.deleted = false;
     this.util.deletePlayer(playerId);

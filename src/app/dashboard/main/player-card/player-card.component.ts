@@ -26,6 +26,7 @@ export class PlayerCardComponent implements OnInit {
 
   ngOnInit() {
     this.players = JSON.parse(localStorage.getItem('players'));
+    this.players.sort((a, b) => (a.id > b.id) ? 1 : -1);
   }
 
   routeTo(playerId: number) {
